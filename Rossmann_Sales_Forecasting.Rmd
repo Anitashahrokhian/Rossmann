@@ -2,12 +2,12 @@
 title: "Rossmann Sales Forecasting"
 author: "Anita Shahrokhan"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 ## Project Overview
 
-This project aims to predict sales for 20 Rossmann stores from June to July 2015 using historical data from January 2013 to March 2015. I implemented three models—Extreme Gradient Boosting (XGBoost), Random Forest, and Linear Regression—using features such as store ID, day of the week, promotions, school holidays, store type, competition distance, and date components (year, month, day). After exploring the data through visualizations, I compared model performances to identify the most effective approach.
+This project aims to predict sales using historical data from January 2013 to March 2015. I implemented three models, Extreme Gradient Boosting (XGBoost), Random Forest, and Linear Regression using features such as store ID, day of the week, promotions, school holidays, store type, competition distance, and date components (year, month, day). After exploring the data through visualizations, I compared model performances to identify the most effective approach.
 
 ## 1. Data
 
@@ -108,7 +108,7 @@ After merging the datasets, I filtered out days when stores were closed, as sale
 
 ### 2.1 Day of Week and Monthly Trends
 
-Sales patterns show that Mondays and Fridays typically have higher sales, while Sundays have little to no sales due to store closures. Monthly averages highlight a sales peak in December, likely due to the holiday season, and a dip in February.
+Sales patterns show that Mondays and Fridays typically have higher sales, while Sundays have little to no sales due to store closures.
 
 ```{r plot-dayofweek, echo=TRUE, fig.width=7, fig.height=5, message=FALSE, warning=FALSE}
 #-------------------------------------------------------------------------------
@@ -126,7 +126,7 @@ plot_dayofweek1 <- ggplot(data_dayofweek, aes(x = DayOfWeek, y = Sales)) +
   geom_text(aes(label = round(Sales, 0)), 
             vjust = -0.5, size = 4, color = "black", fontface = "bold") +
   labs(
-    title = "Average Sales by Day of the Week",
+    title = "Average Sales",
     x = "Day of the Week",
     y = "Average Sales"
   ) +
@@ -148,7 +148,7 @@ plot_dayofweek2 <- ggplot(Data_box, aes(x = DayOfWeek, y = Sales, fill = DayOfWe
   geom_boxplot(notch = TRUE, outlier.shape = 16, outlier.alpha = 0.3) +
   scale_fill_manual(values = rep("#FF69B4", 7)) +  # consistent pink fill
   labs(
-    title = "Sales Distribution by Day of the Week",
+    title = "Sales Distribution",
     x = "Day of the Week",
     y = "Daily Sales"
   ) +
